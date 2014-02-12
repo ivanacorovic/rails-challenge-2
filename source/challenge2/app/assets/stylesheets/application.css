@@ -1,0 +1,17 @@
+#active {
+	background-color: yellow; 
+}
+
+#inactive {
+	background-color: #FF0000; 
+}
+
+#commented {
+	background-color: #00FF00; 
+}
+
+td {
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 200px;
+}

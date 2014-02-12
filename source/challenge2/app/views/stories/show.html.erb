@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @story.user_id %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @story.active %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @story.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @story.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @story.description %>
+</p>
+</br>
+<strong>Comments:</strong>
+</p>
+  <% @story.comments.each do |comment| %>
+     <p>
+      <%= comment.comment %>
+      <strong>User:</strong> 
+      <%= comment.user_id %>  
+  <% end %>
+</p>

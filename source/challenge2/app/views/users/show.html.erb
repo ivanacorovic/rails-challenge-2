@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @user.about %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+</br>
+
+<p><strong>Active Stories: </strong></p>
+<table id="active">
+  <% if @stories_active %>
+  <tr><td>Title</td>
+      <td>Number od comments</td> 
+      <td>Date created</td>
+  </tr>
+    <%  @stories_active.each do |story| %>
+    <tr>
+      <td> <%= link_to  story.title, story.url%></td>
+      <td> <%= story.comments.count %></td>
+      <td> <%= story.created_at.strftime("%d %b. %Y") %></td>
+    </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<p><strong>Inactive Stories:</strong></p>
+<table id="inactive">
+  <% if @stories_inactive %>
+    <%  @stories_inactive.each do |story| %>
+    <tr>
+       <td> <%= link_to  story.title, story.url%></td>
+       <td>
+       <%= form_for(story) do |f| %>
+         <div class="field">
+           <%= f.label :active %><br>
+           <%= f.check_box :active %>
+           <%= f.submit "Activate" %>
+         </div>
+        <% end %>
+      </td>
+      </tr>
+    <%end %>
+  <%end %>
+</table>
+</br>
+<p><strong>Commented Stories:</strong></p>
+<table id="commented">
+  <% if @comments %>
+   <tr><td>Title</td>
+      <td>Comment</td> 
+      <td>Date Comment Created</td>
+  </tr>
+    <%  @comments.each do |comment| %>
+    <tr>
+      <td> <%= link_to  comment.story.title, comment.story.url%></td>
+      <td><%= comment.comment %></td>
+      <td> <%= comment.created_at.strftime("%d %b. %Y")%></td>
+    </tr>
+    <%end %>
+  <%end %>
+</table>
+
+
+
