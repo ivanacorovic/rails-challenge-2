@@ -9,16 +9,16 @@ FactoryGirl.define do
   end
 
   factory :story do
+    sequence(:id) {|n| n } 
     sequence(:active) { true}
     sequence(:url) {'https://www.google.com'}
     sequence(:title) {|n| "Title #{n}"}
     sequence(:description) {"Description"}
     user
-    
   end
 
   factory :comment do
-    sequence(:comment)  {"Comment kdfss"}
+    sequence(:comment)  {"Comment tralala"}
     user
     story
   end

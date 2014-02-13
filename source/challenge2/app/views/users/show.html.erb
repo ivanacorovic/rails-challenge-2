@@ -28,7 +28,7 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
-</br>
+<br>
 
 <p><strong>Active Stories: </strong></p>
 <table id="active">
@@ -46,7 +46,7 @@
     <%end %>
   <%end %>
 </table>
-</br>
+<br>
 <p><strong>Inactive Stories:</strong></p>
 <table id="inactive">
   <% if @stories_inactive %>
@@ -56,9 +56,9 @@
        <td>
        <%= form_for(story) do |f| %>
          <div class="field">
-           <%= f.label :active %><br>
-           <%= f.check_box :active %>
-           <%= f.submit "Activate" %>
+           <%= f.label :active, "Checkbox #{story.id}" %><br>
+           <%= f.check_box :active, { :id => "mycheckbox-#{story.id}" } %>
+           <%= f.submit "Activate#{story.id}" %>
          </div>
         <% end %>
       </td>
@@ -66,7 +66,7 @@
     <%end %>
   <%end %>
 </table>
-</br>
+<br>
 <p><strong>Commented Stories:</strong></p>
 <table id="commented">
   <% if @comments %>
