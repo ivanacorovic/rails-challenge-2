@@ -56,7 +56,7 @@
        <td>
        <%= form_for(story) do |f| %>
          <div class="field">
-           <%= f.label :active, "Checkbox #{story.id}" %><br>
+           <%= f.label :active %><br>
            <%= f.check_box :active, { :id => "mycheckbox-#{story.id}" } %>
            <%= f.submit "Activate#{story.id}" %>
          </div>
